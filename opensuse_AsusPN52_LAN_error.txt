@@ -1,0 +1,65 @@
+[ 2304.780142] ------------[ cut here ]------------
+[ 2304.780148] NETDEV WATCHDOG: enp2s0 (r8169): transmit queue 0 timed out
+[ 2304.780162] WARNING: CPU: 9 PID: 0 at net/sched/sch_generic.c:525 dev_watchdog+0x1f3/0x200
+[ 2304.780178] Modules linked in: uinput isofs cdrom rfcomm snd_seq_dummy snd_hrtimer snd_seq snd_seq_device af_packet nft_fib_inet nft_fib_ipv4 nft_fib_ipv6 nft_fib nft_reject_inet nf_reject_ipv4 nf_reject_ipv6 nft_reject nft_ct nft_chain_nat hid_logitech_hidpp nf_tables ebtable_nat ebtable_broute ip6table_nat bridge ip6table_mangle ip6table_raw stp llc joydev ip6table_security iptable_nat nf_nat nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 iptable_mangle iptable_raw iptable_security nfnetlink ebtable_filter ebtables ip6table_filter ip6_tables iptable_filter bpfilter cmac algif_hash algif_skcipher af_alg qrtr bnep nls_iso8859_1 nls_cp437 vfat fat ext4 mbcache jbd2 intel_rapl_msr hid_logitech_dj intel_rapl_common mt7921e mt7921_common snd_sof_amd_renoir snd_sof_amd_acp mt76_connac_lib snd_sof_pci snd_sof mt76 snd_hda_codec_realtek hid_generic edac_mce_amd snd_sof_utils snd_hda_codec_generic snd_hda_codec_hdmi mac80211 snd_soc_core snd_hda_intel btusb snd_intel_dspcfg
+[ 2304.780271]  snd_intel_sdw_acpi snd_compress snd_hda_codec btrtl snd_pcm_dmaengine kvm_amd btbcm snd_rpl_pci_acp6x snd_hda_core btintel snd_acp_pci snd_pci_acp6x btmtk snd_hwdep snd_pci_acp5x libarc4 bluetooth eeepc_wmi kvm snd_rn_pci_acp3x snd_pcm r8169 asus_nb_wmi snd_timer asus_wmi snd_acp_config realtek cfg80211 battery ecdh_generic snd mdio_devres usbhid ledtrig_audio snd_soc_acpi sparse_keymap irqbypass platform_profile wmi_bmof efi_pstore pcspkr k10temp i2c_piix4 libphy soundcore snd_pci_acp3x rfkill tiny_power_button serial_multi_instantiate acpi_cpufreq button fuse configfs dmi_sysfs ip_tables x_tables uas usb_storage amdgpu crct10dif_pclmul crc32_pclmul polyval_clmulni polyval_generic gf128mul ghash_clmulni_intel drm_ttm_helper ttm xhci_pci xhci_pci_renesas iommu_v2 xhci_hcd gpu_sched aesni_intel drm_buddy nvme drm_display_helper crypto_simd ucsi_acpi usbcore cryptd nvme_core typec_ucsi cec ccp roles sp5100_tco rc_core typec wmi video btrfs blake2b_generic
+[ 2304.780354]  libcrc32c crc32c_intel xor raid6_pq sg dm_multipath dm_mod scsi_dh_rdac scsi_dh_emc scsi_dh_alua msr efivarfs
+[ 2304.780368] CPU: 9 PID: 0 Comm: swapper/9 Not tainted 6.0.10-1-default #1 openSUSE Tumbleweed 4a16f579cfdae0483b65cebdea4b5e462535ee0d
+[ 2304.780374] Hardware name: ASUSTeK COMPUTER INC. MINIPC PN52/PN52, BIOS 11800 09/07/2022
+[ 2304.780377] RIP: 0010:dev_watchdog+0x1f3/0x200
+[ 2304.780383] Code: 00 e9 40 ff ff ff 48 89 df c6 05 14 fa 53 01 01 e8 a2 84 f9 ff 44 89 e9 48 89 de 48 c7 c7 38 e3 d8 b5 48 89 c2 e8 98 d3 17 00 <0f> 0b e9 22 ff ff ff 66 0f 1f 44 00 00 0f 1f 44 00 00 55 53 48 89
+[ 2304.780386] RSP: 0018:ffffb351003d4eb0 EFLAGS: 00010282
+[ 2304.780389] RAX: 0000000000000000 RBX: ffff8b6929a4c000 RCX: 0000000000000027
+[ 2304.780392] RDX: ffff8b77300624e8 RSI: 0000000000000001 RDI: ffff8b77300624e0
+[ 2304.780394] RBP: ffff8b6929a4c4c8 R08: 0000000000000000 R09: ffffb351003d4d58
+[ 2304.780395] R10: 0000000000000003 R11: ffff8b772fcfffe8 R12: ffff8b6929a4c41c
+[ 2304.780397] R13: 0000000000000000 R14: ffffffffb515ddc0 R15: ffff8b6929a4c4c8
+[ 2304.780399] FS:  0000000000000000(0000) GS:ffff8b7730040000(0000) knlGS:0000000000000000
+[ 2304.780401] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[ 2304.780403] CR2: 00007fd89845bd64 CR3: 00000006c0210000 CR4: 0000000000750ee0
+[ 2304.780405] PKRU: 55555554
+[ 2304.780407] Call Trace:
+[ 2304.780410]  <IRQ>
+[ 2304.780417]  ? pfifo_fast_change_tx_queue_len+0x2f0/0x2f0
+[ 2304.780422]  call_timer_fn+0x24/0x130
+[ 2304.780430]  __run_timers.part.0+0x1d7/0x260
+[ 2304.780435]  ? __hrtimer_run_queues+0x159/0x2c0
+[ 2304.780439]  ? ktime_get+0x35/0xa0
+[ 2304.780443]  run_timer_softirq+0x26/0x50
+[ 2304.780446]  __do_softirq+0xc2/0x2a3
+[ 2304.780455]  __irq_exit_rcu+0xaa/0xe0
+[ 2304.780461]  sysvec_apic_timer_interrupt+0x6e/0x90
+[ 2304.780468]  </IRQ>
+[ 2304.780469]  <TASK>
+[ 2304.780471]  asm_sysvec_apic_timer_interrupt+0x16/0x20
+[ 2304.780475] RIP: 0010:cpuidle_enter_state+0xde/0x420
+[ 2304.780480] Code: 00 00 31 ff e8 43 c4 85 ff 45 84 ff 74 16 9c 58 0f 1f 40 00 f6 c4 02 0f 85 25 03 00 00 31 ff e8 f8 b9 8c ff fb 0f 1f 44 00 00 <45> 85 f6 0f 88 85 01 00 00 49 63 d6 48 8d 04 52 48 8d 04 82 49 8d
+[ 2304.780482] RSP: 0018:ffffb351001c7e90 EFLAGS: 00000246
+[ 2304.780484] RAX: ffff8b7730073bc0 RBX: ffff8b68c7b79800 RCX: 00000000000000b3
+[ 2304.780486] RDX: 0000000000000009 RSI: 000002189f99c7b3 RDI: 0000000000000000
+[ 2304.780488] RBP: 0000000000000003 R08: ffffffffffc2f728 R09: 0000000027c5e16c
+[ 2304.780489] R10: 0000000000000018 R11: 0000000000001040 R12: ffffffffb6631460
+[ 2304.780491] R13: 000002189f99c7b3 R14: 0000000000000003 R15: 0000000000000000
+[ 2304.780498]  cpuidle_enter+0x29/0x40
+[ 2304.780501]  do_idle+0x202/0x2a0
+[ 2304.780507]  cpu_startup_entry+0x19/0x20
+[ 2304.780511]  start_secondary+0x114/0x140
+[ 2304.780517]  secondary_startup_64_no_verify+0xe5/0xeb
+[ 2304.780526]  </TASK>
+[ 2304.780527] ---[ end trace 0000000000000000 ]---
+[ 2304.809882] r8169 0000:02:00.0 enp2s0: rtl_chipcmd_cond == 1 (loop: 100, delay: 100).
+[ 2304.811025] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2304.812228] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2304.813338] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2304.814432] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2304.815544] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2304.816678] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2304.835961] r8169 0000:02:00.0 enp2s0: rtl_mac_ocp_e00e_cond == 1 (loop: 10, delay: 1000).
+[ 2330.925664] r8169 0000:02:00.0 enp2s0: rtl_chipcmd_cond == 1 (loop: 100, delay: 100).
+[ 2330.927068] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2330.928207] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2330.929323] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2330.930430] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2330.931540] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2330.932691] r8169 0000:02:00.0 enp2s0: rtl_ephyar_cond == 1 (loop: 100, delay: 10).
+[ 2330.952008] r8169 0000:02:00.0 enp2s0: rtl_mac_ocp_e00e_cond == 1 (loop: 10, delay: 1000).
